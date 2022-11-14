@@ -63,7 +63,7 @@ impl RLBotInterface {
     #[deprecated(
         note = "the struct-based methods are deprecated; use the flatbuffer equivalents instead"
     )]
-    pub fn update_rigid_body_tick(&self, tick: &mut ffi::RigidBodyTick) -> Result<(), RLBotError> {
+    pub fn update_rigid_body_tick(&self, tick: *mut ffi::RigidBodyTick) -> Result<(), RLBotError> {
         let status = (self.dll.update_rigid_body_tick)(tick);
         core_result(status)
     }

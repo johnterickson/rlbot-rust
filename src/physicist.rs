@@ -1,7 +1,7 @@
 use crate::{ffi, game, rlbot::RLBot};
 use std::{
     error::Error,
-    mem,
+    mem::{self, MaybeUninit},
     time::{Duration, Instant},
 };
 
@@ -55,8 +55,9 @@ impl<'a> Physicist<'a> {
     )]
     #[allow(deprecated)]
     pub fn try_next(&mut self) -> Result<Option<ffi::RigidBodyTick>, Box<dyn Error>> {
-        let mut result = unsafe { mem::uninitialized() };
-        self.rlbot.interface().update_rigid_body_tick(&mut result)?;
+        let mut result = MaybeUninit::zeroed();
+        self.rlbot.interface().update_rigid_body_tick(result.as_mut_ptr())?;
+        let result = unsafe { result.assume_init() };
         if result.Ball.State.Frame != self.prev_ball_frame {
             self.prev_ball_frame = result.Ball.State.Frame;
             Ok(Some(result))
