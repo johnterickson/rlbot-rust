@@ -15,7 +15,7 @@ pub struct Vector3Partial {
     pub y: Option<f32>,
     /// The Z coordinate.
     pub z: Option<f32>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl Vector3Partial {
@@ -67,7 +67,7 @@ pub struct RotatorPartial {
     pub yaw: Option<f32>,
     /// The roll.
     pub roll: Option<f32>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl RotatorPartial {
@@ -121,7 +121,7 @@ pub struct DesiredPhysics {
     pub velocity: Option<Vector3Partial>,
     /// The angular velocity of the rigid body.
     pub angular_velocity: Option<Vector3Partial>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl DesiredPhysics {
@@ -173,7 +173,7 @@ impl DesiredPhysics {
 pub struct DesiredBallState {
     /// The ball's physics.
     pub physics: Option<DesiredPhysics>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl DesiredBallState {
@@ -210,7 +210,7 @@ pub struct DesiredCarState {
     pub jumped: Option<bool>,
     /// Whether the car has used its second jump.
     pub double_jumped: Option<bool>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl DesiredCarState {
@@ -265,7 +265,7 @@ impl DesiredCarState {
 pub struct DesiredBoostState {
     /// The amount of time until the boost pickup respawns.
     pub respawn_time: Option<f32>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl DesiredBoostState {
@@ -299,7 +299,7 @@ pub struct DesiredGameInfoState {
     pub world_gravity_z: Option<f32>,
     /// The game speed multiplier (`1.0` is normal speed).
     pub game_speed: Option<f32>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl DesiredGameInfoState {
@@ -349,7 +349,7 @@ pub struct DesiredGameState {
     pub boost_states: Vec<Option<DesiredBoostState>>,
     /// The state of the game environment.
     pub game_info_state: Option<DesiredGameInfoState>,
-    non_exhaustive: (),
+    _non_exhaustive: (),
 }
 
 impl DesiredGameState {

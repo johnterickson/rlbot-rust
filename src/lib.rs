@@ -125,7 +125,7 @@
 #![warn(future_incompatible, rust_2018_compatibility, rust_2018_idioms, unused)]
 #![cfg_attr(feature = "strict", deny(warnings))]
 #![warn(missing_docs, clippy::all)]
-#![allow(intra_doc_link_resolution_failure)]
+#![allow(rustdoc::broken_intra_doc_links)]
 
 pub use crate::{
     framework::{parse_framework_args, run_bot, Bot, FrameworkArgs},

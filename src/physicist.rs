@@ -1,7 +1,7 @@
 use crate::{ffi, game, rlbot::RLBot};
 use std::{
     error::Error,
-    mem::{self, MaybeUninit},
+    mem::MaybeUninit,
     time::{Duration, Instant},
 };
 
